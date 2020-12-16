@@ -1,0 +1,54 @@
+server:
+  port: 8001
+spring:
+  profiles: default
+  application:
+    name: hy-auth-server
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://47.75.199.218:8000/eureka/
+
+---
+### test环境配置
+server:
+  port: 8001
+spring:
+  profiles: test
+  application:
+    name: hy-auth-server
+  cloud:
+    config:
+      fail-fast: true
+      discovery:
+        enabled: true
+        service-id: hy-config-server
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://47.75.199.218:8000/eureka/
+
+---
+### prod环境配置
+server:
+  port: 8001
+spring:
+  profiles: prod
+  application:
+    name: hy-auth-server
+  cloud:
+    config:
+      fail-fast: true
+      discovery:
+        enabled: true
+        service-id: hy-config-server
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://hy-eureka-server-1:8761/eureka/,http://hy-eureka-server-2:8761/eureka/
