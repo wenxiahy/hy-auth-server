@@ -21,6 +21,19 @@ public class AuthServiceImpl implements IAuthService {
     private static final Logger LOGGER = LoggerFactory.getLogger(AuthServiceImpl.class);
 
     @Override
+    public User login(String username, String password) {
+        if ("xiaoming".equals(username) && "123456".equals(password)) {
+            User user = new User();
+            user.setUserId(10000);
+            user.setUsername(username);
+            user.setPassword(password);
+            return user;
+        }
+
+        return null;
+    }
+
+    @Override
     public String auth(User user) {
         try {
             AuthenticationUser authUser = new AuthenticationUser();
@@ -42,15 +55,14 @@ public class AuthServiceImpl implements IAuthService {
     }
 
     @Override
-    public User login(String username, String password) {
-        if ("xiaoming".equals(username) && "123456".equals(password)) {
-            User user = new User();
-            user.setUserId(10000);
-            user.setUsername(username);
-            user.setPassword(password);
-            return user;
+    public AuthenticationUser valid(String token) {
+        try {
+            String decrypt = AesEncryptUtils.decrypt(token);
+            String payload = Base64Utils.decryptUrlSafeBase64(decrypt);
+            AuthenticationUser authUser = JacksonUtils.json2Object(payload, AuthenticationUser.class);
+            return authUser;
+        } catch (Exception e) {
+            return null;
         }
-
-        return null;
     }
 }
