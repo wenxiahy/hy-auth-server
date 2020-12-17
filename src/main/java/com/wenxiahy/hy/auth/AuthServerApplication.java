@@ -9,7 +9,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * @Description
  * @Date 2020-12-16
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.wenxiahy.hy"})
 @EnableDiscoveryClient
 public class AuthServerApplication {
 
