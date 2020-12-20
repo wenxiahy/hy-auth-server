@@ -24,6 +24,8 @@
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+
+        <jackson.version>2.10.0</jackson.version>
     </properties>
 
     <parent>
@@ -57,7 +59,12 @@
         <dependency>
             <groupId>com.wenxiahy</groupId>
             <artifactId>hy-common</artifactId>
-            <version>1.0.2</version>
+            <version>1.0.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.wenxiahy</groupId>
+            <artifactId>hy-starter-redis</artifactId>
+            <version>1.0.1</version>
         </dependency>
     </dependencies>
 
