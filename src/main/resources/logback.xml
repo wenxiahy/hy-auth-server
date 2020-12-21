@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <property name="log.context.name" value="hy-auth-server"/>
+    <property name="application.name" value="hy-auth-server"/>
     <property name="log.path" value="./logs"/>
-    <property name="log.filename" value="hy-auth-server"/>
     <property name="log.charset" value="UTF-8"/>
     <property name="log.pattern" value="[%date][%-5level][%thread][%class:%line]%msg%n"/>
-    <contextName>${log.context.name}</contextName>
+    <contextName>${application.name}</contextName>
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder charset="${log.charset}">
@@ -14,10 +13,9 @@
     </appender>
 
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${log.path}/${log.filename}.log</file>
+        <file>${log.path}/${application.name}.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${log.path}/${log.filename}-%d{yyyy-MM-dd}.%i.log
-            </fileNamePattern>
+            <fileNamePattern>${log.path}/${application.name}-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <maxHistory>90</maxHistory>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>30MB</maxFileSize>
@@ -29,7 +27,7 @@
     </appender>
 
     <!-- 发布时，additivity设为false -->
-    <logger name="com.wenxiahy.hy.auth" level="INFO" additivity="false">
+    <logger name="com.wenxiahy.hy" level="INFO" additivity="false">
         <appender-ref ref="FILE"/>
     </logger>
 
