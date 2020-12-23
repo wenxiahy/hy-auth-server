@@ -14,12 +14,10 @@
 
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${log.path}/${application.name}.log</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <fileNamePattern>${log.path}/${application.name}-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <maxHistory>90</maxHistory>
-            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <maxFileSize>30MB</maxFileSize>
-            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxFileSize>30MB</maxFileSize>
         </rollingPolicy>
         <encoder charset="${log.charset}">
             <pattern>${log.pattern}</pattern>

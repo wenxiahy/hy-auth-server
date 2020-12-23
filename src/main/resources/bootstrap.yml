@@ -4,6 +4,9 @@ spring:
   profiles: default
   application:
     name: hy-auth-server
+  cloud:
+    config:
+      enabled: false
 eureka:
   instance:
     prefer-ip-address: true
