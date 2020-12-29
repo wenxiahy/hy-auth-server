@@ -3,9 +3,9 @@ package com.wenxiahy.hy.auth.service.impl;
 import com.wenxiahy.hy.auth.service.IAuthService;
 import com.wenxiahy.hy.auth.util.AesEncryptUtils;
 import com.wenxiahy.hy.common.bean.auth.AuthenticationUser;
-import com.wenxiahy.hy.common.bean.entity.User;
 import com.wenxiahy.hy.common.util.Base64Utils;
 import com.wenxiahy.hy.common.util.JacksonUtils;
+import com.wenxiahy.hy.data.user.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -24,7 +24,7 @@ public class AuthServiceImpl implements IAuthService {
     public User login(String username, String password) {
         if ("xiaoming".equals(username) && "123456".equals(password)) {
             User user = new User();
-            user.setUserId(10000);
+            user.setUserId(10000L);
             user.setUsername(username);
             user.setPassword(password);
             return user;

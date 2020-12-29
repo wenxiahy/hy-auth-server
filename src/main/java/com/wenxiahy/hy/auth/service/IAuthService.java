@@ -1,7 +1,7 @@
 package com.wenxiahy.hy.auth.service;
 
 import com.wenxiahy.hy.common.bean.auth.AuthenticationUser;
-import com.wenxiahy.hy.common.bean.entity.User;
+import com.wenxiahy.hy.data.user.User;
 
 /**
  * @Author zhouw
