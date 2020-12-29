@@ -12,7 +12,7 @@ eureka:
     prefer-ip-address: true
   client:
     service-url:
-      defaultZone: http://47.75.199.218:8000/eureka/
+      defaultZone: http://localhost:8000/eureka/
 
 ---
 ### test环境配置
@@ -33,7 +33,7 @@ eureka:
     prefer-ip-address: true
   client:
     service-url:
-      defaultZone: http://47.75.199.218:8000/eureka/
+      defaultZone: http://localhost:8000/eureka/
 
 ---
 ### prod环境配置
